@@ -1,0 +1,19 @@
+{
+  "name": "lucaspereira-dev/clean-architecture",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Lucas Pereira",
+      "email": "lucaspereira.dev@outlook.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}

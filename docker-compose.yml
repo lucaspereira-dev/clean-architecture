@@ -1,0 +1,18 @@
+version: '3.5'
+services:
+  app:
+    container_name: clean-architecture-app
+    image: lucaspereira/php-nginx-dev
+    volumes:
+      - ./:/var/www/html
+    entrypoint:
+      - XDEBUG_START_WITH_REQUEST=yes
+      - XDEBUG_DISCOVER_CLIENT_HOST=false
+    ports:
+      - '8080:80'
+      - '443:443'
+    networks:
+      - clean-architecture-networks
+networks:
+  clean-architecture-networks:
+    driver: bridge
