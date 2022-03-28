@@ -1,18 +1,32 @@
 version: '3.5'
 services:
   app:
+    image: php:7.4-apache
     container_name: clean-architecture-app
-    image: lucaspereira/php-nginx-dev
     volumes:
       - ./:/var/www/html
-    entrypoint:
-      - XDEBUG_START_WITH_REQUEST=yes
-      - XDEBUG_DISCOVER_CLIENT_HOST=false
     ports:
-      - '8080:80'
+      - '80:80'
       - '443:443'
+    links:
+      - mysql
     networks:
       - clean-architecture-networks
+  mysql:
+    image: mysql:5.7
+    container_name: clean-architecture-db
+    command: --default-authentication-plugin=mysql_native_password --explicit_defaults_for_timestamp=1
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret_user
+      MYSQL_DATABASE: secret_password
+    networks:
+      - clean-architecture-networks
+    volumes:
+      - ./.docker/data:/var/lib/mysql
+
 networks:
   clean-architecture-networks:
     driver: bridge
