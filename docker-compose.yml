@@ -20,8 +20,8 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: secret_user
-      MYSQL_DATABASE: secret_password
+      MYSQL_ROOT_PASSWORD: secret_password
+      MYSQL_DATABASE: architecture_db
     networks:
       - clean-architecture-networks
     volumes:

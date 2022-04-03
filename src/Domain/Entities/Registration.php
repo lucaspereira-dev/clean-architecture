@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Domain\Entities;
 
 use App\Domain\ValuesObject\Email;
 use App\Domain\ValuesObject\Cpf;
-use \DateTimeInterface;
+use DateTimeInterface;
 
 final class Registration
 {
@@ -103,6 +105,4 @@ final class Registration
         $this->registrationAt = $registrationAt;
         return $this;
     }
-
-
 }
